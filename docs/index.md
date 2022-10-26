@@ -14,7 +14,7 @@ hero:
       link: /Components/base/introduce.html
     - theme: alt
       text: GitHub
-      link: https://github.com/lengyibai/Lib
+      link: https://github.com/lengyibai/Lib3.0
 
 features:
   - icon: 🏆
