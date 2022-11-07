@@ -111,30 +111,6 @@ const fn = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  i {
-    display: inline-block;
-    width: 5vw;
-    min-width: 50px;
-    height: 5vw;
-    min-height: 50px;
-    z-index: 1;
-  }
-  .scale {
-    animation: scale 0.5s;
-  }
-}
-
-@keyframes scale {
-  35% {
-    transform: scale(0);
-  }
-
-  75% {
-    transform: scale(1.3);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 </style>
 ```
