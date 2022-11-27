@@ -13,7 +13,7 @@
 <template #codes>
 
 ```js
-export function $throttleDelay(() => {
+export const $throttleDelay = (() => {
   let timer;
   return function (fn, delay) {
     if (!timer) {
@@ -35,7 +35,7 @@ export function $throttleDelay(() => {
 <template #codes>
 
 ```js
-export function $throttleInstant(() => {
+export const $throttleInstant = (() => {
   let last = 0;
   return (callback, wait = 800) => {
     let now = +new Date();

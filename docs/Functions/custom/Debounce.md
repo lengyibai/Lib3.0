@@ -11,7 +11,7 @@
 <template #codes>
 
 ```js
-export function $debounceDelay(() => {
+export const $debounceDelay = (() => {
   let timer = null;
   return (callback, wait = 800) => {
     timer && clearTimeout(timer);
@@ -29,9 +29,9 @@ export function $debounceDelay(() => {
 <template #codes>
 
 ```js
-export function $debounceInstant(() => {
+const $debounceInstant = (() => {
   let timer;
-  return function (fn, delay) {
+  return (fn, delay) => {
     let context = this;
     let args = arguments;
     if (timer) clearTimeout(timer);

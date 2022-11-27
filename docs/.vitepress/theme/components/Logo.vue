@@ -1,7 +1,7 @@
 <template>
   <div class="Logo">
     <div class="lib" v-sweepLight="{ time: 3 }">
-      <img src="http://lengyibai.gitee.io/img-bed/img/lib.png" alt="加载失败" />
+      <img src="https://lengyibai.gitee.io/img-bed/img/lib.png" alt="加载失败" />
     </div>
     <div class="name">Lib</div>
     <div class="desc">轻量、PC端 Vue 自用组件库</div>

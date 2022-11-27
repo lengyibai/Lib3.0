@@ -6,7 +6,7 @@ hero:
   text: 🌈Vue3自用组件库
   tagline: 🐧QQ群：1062077391
   image:
-    src: http://lengyibai.gitee.io/img-bed/img/lib.png
+    src: https://lengyibai.gitee.io/img-bed/img/lib.png
     alt: Lib
   actions:
     - theme: brand

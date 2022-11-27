@@ -14,15 +14,15 @@ setTimeout(() => {
   files.value = [
     {
       fileName: '图片1',
-      src: 'http://lengyibai.gitee.io/img-bed/img/lyb.png',
+      src: 'https://lengyibai.gitee.io/img-bed/img/lyb.png',
     },
     {
       fileName: '图片2',
-      src: 'http://lengyibai.gitee.io/img-bed/img/lyb.png',
+      src: 'https://lengyibai.gitee.io/img-bed/img/lyb.png',
     },
     {
       fileName: '图片3',
-      src: 'http://lengyibai.gitee.io/img-bed/img/lyb.png',
+      src: 'https://lengyibai.gitee.io/img-bed/img/lyb.png',
     },
   ];
 }, 1000);

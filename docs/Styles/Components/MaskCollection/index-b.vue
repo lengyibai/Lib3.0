@@ -8,7 +8,7 @@
   position: relative;
   width: 100%;
   height: 75vh;
-  background: url('http://lengyibai.gitee.io/img-bed/img/bg.jpg') no-repeat center;
+  background: url('https://lengyibai.gitee.io/img-bed/img/bg.jpg') no-repeat center;
   background-size: cover;
 }
 

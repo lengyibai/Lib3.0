@@ -13,7 +13,7 @@ const config = defineConfig({
   ignoreDeadLinks: true,
   themeConfig: {
     siteTitle: 'Lib',
-    logo: 'http://lengyibai.gitee.io/img-bed/img/lib.png',
+    logo: 'https://lengyibai.gitee.io/img-bed/img/lib.png',
     lastUpdatedText: '最后更新时间',
     socialLinks: [
       {

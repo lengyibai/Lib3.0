@@ -37,7 +37,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const img_url = ref('http://lengyibai.gitee.io/img-bed/img/lyb.png');
+const img_url = ref('https://lengyibai.gitee.io/img-bed/img/lyb.png');
 </script>
 ```
 
