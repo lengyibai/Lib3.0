@@ -53,10 +53,10 @@
       </template>
 
       <template v-slot:body="{ data }">
-        <TableColumn min-width="100">{{ data.date }}</TableColumn>
-        <TableColumn min-width="100">{{ data.name }}</TableColumn>
-        <TableColumn min-width="100">{{ data.address }}</TableColumn>
-        <TableColumn min-width="100">
+        <TableColumn minWidth="100px">{{ data.date }}</TableColumn>
+        <TableColumn minWidth="150px">{{ data.name }}</TableColumn>
+        <TableColumn minWidth="150px">{{ data.address }}</TableColumn>
+        <TableColumn minWidth="100px">
           <button>冻结</button>
         </TableColumn>
       </template>
@@ -64,6 +64,9 @@
   </div>
 </template>
 <script setup>
+import LibTable from '../index.vue';
+import TableColumn from '../TableColumn/index.vue';
+
 const tableData = [
   {
     id: 1,
@@ -170,9 +173,10 @@ const sortChange = (v) => {
 
 <template #desc>
 
-| 参数      | 说明           | 类型   | 默认值      |
-| --------- | -------------- | ------ | ----------- |
-| min-width | 单元格最小宽度 | String | 0（自适应） |
+| 参数     | 说明           | 类型   | 默认值      |
+| -------- | -------------- | ------ | ----------- |
+| minWidth | 单元格最小宽度 | String | 0（自适应） |
+| width    | 当前宽度       | String | -           |
 
 </template>
 </ContainerBox>

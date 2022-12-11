@@ -15,10 +15,10 @@
       </template>
 
       <template v-slot:body="{ data }">
-        <TableColumn min-width="100">{{ data.date }}</TableColumn>
-        <TableColumn min-width="100">{{ data.name }}</TableColumn>
-        <TableColumn min-width="100">{{ data.address }}</TableColumn>
-        <TableColumn min-width="100">
+        <TableColumn minWidth="100px">{{ data.date }}</TableColumn>
+        <TableColumn minWidth="150px">{{ data.name }}</TableColumn>
+        <TableColumn minWidth="150px">{{ data.address }}</TableColumn>
+        <TableColumn minWidth="100px">
           <button>冻结</button>
         </TableColumn>
       </template>

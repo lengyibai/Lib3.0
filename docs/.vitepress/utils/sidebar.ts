@@ -144,6 +144,7 @@ export const sidebar = {
         { text: '对象深度合并', link: '/Functions/custom/DeepMearge' },
         { text: '对象过滤', link: '/Functions/custom/RemoveEmptyField' },
         { text: '深拷贝', link: '/Functions/custom/DeepCopy' },
+        { text: '保存为文件', link: '/Functions/custom/SaveFile' },
       ],
     },
     {

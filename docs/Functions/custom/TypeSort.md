@@ -36,11 +36,24 @@ $typeSort(num, false); //['腾讯', '百度', '阿里', 9, 6, 5, 5, 4, '333', 3,
 
 ```js
 export function $typeSort(data, key, rev = true) {
-  const num = typeof key == 'boolean' ? (key ? 1 : -1) : rev ? 1 : -1;
+  const num = typeof key == "boolean" ? (key ? 1 : -1) : rev ? 1 : -1;
   return data.sort((a, b) => {
-    return typeof data[0] == 'object'
-      ? a[key].toString().localeCompare(b[key].toString()) * num
-      : a.toString().localeCompare(b.toString()) * num;
+    if (typeof data[0] == "object") {
+      if (typeof a[key] == "number") {
+        return (a[key] - b[key]) * num;
+      }
+      if (typeof a[key] == "string") {
+        return a[key].toString().localeCompare(b[key].toString()) * num;
+      }
+    }
+
+    if (typeof a == "number") {
+      return (a - b) * num;
+    }
+
+    if (typeof a == "string") {
+      return a.toString().localeCompare(b.toString()) * num;
+    }
   });
 }
 ```
