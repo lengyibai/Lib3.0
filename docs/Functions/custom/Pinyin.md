@@ -11,7 +11,7 @@
 <ContainerBox title="基础用法">
 
 ```js
-$pinyin('冷弋白'); //[ 'lengyibai', 'LengYiBai', 'lyb', 'LYB' ]
+$pinyin('冷弋白'); //[ 'lengyibai', 'lyb' ]
 ```
 
 </ContainerBox>

@@ -34,31 +34,64 @@ $search(obj, 'LiS', ['name', 'age']);
 
 $search(obj, ['张三', 'ww'], ['name', 'age']);
 // [ { name: '张三', age: 20 }, { name: '王五', age: 24 } ]
-
-$search(obj, 'zs-lis', ['name', 'age']);
-// [ { name: '张三', age: 20 }, { name: '李四', age: 24 } ]
 ```
 
 <ShowCode>
 <template #codes>
 
 ```js
-export function $search(data, value, keys) {
+const $search = (data, value, keys) => {
+  // 创建用于存储搜索结果的数组
   let arr = [];
-
-  function fn(item, key) {
-    let reg = new RegExp(item, 'i');
+  // 定义搜索函数，这个函数接收两个参数：搜索值和搜索键
+  const fn = (item, key) => {
+    // 使用正则表达式构造忽略大小写的搜索模式
+    const reg = new RegExp(item.toString().toLowerCase(), "i");
+    // 将过滤后的搜索结果添加到结果数组中
     arr.push(
       ...data.filter((item) => {
-        return reg.test($pinyin(item[key] || item[key].toString())) || reg.test(item[key]);
+        let test = "";
+        // 如果搜索的数据项的类型是数字，则直接搜索数据项
+        if (typeof item[key] === "number") {
+          test = item[key];
+          return reg.test(test);
+        }
+        // 如果搜索的数据项的类型是字符串，则搜索数据项和拼音
+        if (typeof item[key] === "string") {
+          test = $pinyin(item[key]);
+          return reg.test(test) || reg.test(item[key]);
+        }
       })
     );
+  };
+
+  // 检查搜索值是否是数组
+  if (Array.isArray(value)) {
+    // 如果value为数组，则遍历数组的每个值并进行搜索
+    value.forEach((val) => {
+      // 遍历value中的每个值
+      if (Array.isArray(keys)) {
+        // 如果keys是数组，则遍历每个搜索键并进行搜索
+        keys.map((key) => fn(val || "", key));
+      } else {
+        // 如果keys不是数组，则直接使用这个搜索键进行搜索
+        fn(val || "", keys);
+      }
+    });
+  } else {
+    // 如果value不是数组，则直接对这个值进行搜索
+    if (Array.isArray(keys)) {
+      // 如果keys是数组，则遍历每个搜索键并进行搜索
+      keys.map((key) => fn(value || "", key));
+    } else {
+      // 如果keys不是数组，则直接使用这个搜索键进行搜索
+      fn(value || "", keys);
+    }
   }
-  keys.forEach((key) => {
-    fn(value || '', key);
-  });
+
+  // 返回搜索结果数组
   return arr;
-}
+};
 ```
 
 </template>
