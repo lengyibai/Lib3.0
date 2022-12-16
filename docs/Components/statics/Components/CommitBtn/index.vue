@@ -7,9 +7,18 @@
       height: size,
     }"
   >
-    <img class="up" v-show="show_up" :class="{ move: modelValue === 1 }" src="./img/fabu.svg" />
+    <img
+      class="up"
+      v-show="show_up"
+      :class="{ move: modelValue === 1 }"
+      src="./img/fabu.svg"
+    />
     <transition name="fade">
-      <img v-show="!show_up && modelValue === 1 && !finish" class="rotate" src="./img/loading.svg" />
+      <img
+        v-show="!show_up && modelValue === 1 && !finish"
+        class="rotate"
+        src="./img/loading.svg"
+      />
     </transition>
     <transition name="bounce">
       <img v-show="finish" src="./img/success.svg" />
@@ -17,7 +26,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch } from "vue";
 interface Props {
   size?: string;
   finish?: boolean;
@@ -25,18 +34,18 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  size: '50px',
+  size: "50px",
   finish: false,
   modelValue: 0,
 });
 
 const show_up = ref(true);
-const emit = defineEmits(['commit', 'update:modelValue']);
+const emit = defineEmits(["commit", "update:modelValue"]);
 const commit = () => {
-  emit('update:modelValue', 1);
+  emit("update:modelValue", 1);
   setTimeout(() => {
     show_up.value = false;
-    emit('commit');
+    emit("commit");
   }, 750);
 };
 
@@ -57,6 +66,14 @@ watch(
   justify-content: center;
   align-items: center;
   overflow: hidden;
+
+  &:hover {
+    filter: saturate(2);
+  }
+
+  &:active {
+    filter: brightness(0.75);
+  }
   img {
     width: 75%;
     height: 75%;
