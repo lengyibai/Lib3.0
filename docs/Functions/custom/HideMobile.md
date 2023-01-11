@@ -20,7 +20,7 @@ $hideMobile(12345678910); //123****8910
 ```js
 export function $hideMobile(mobile) {
   const m = mobile.toString();
-  return m.replace(/^(\d{3})\d{4}(\d{4})$/, '$1****$2');
+  return m.replace(/^(\d{3})\d{4}(\d{4})$/, "$1****$2");
 }
 ```
 

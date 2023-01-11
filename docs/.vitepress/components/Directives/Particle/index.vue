@@ -16,10 +16,7 @@ export default {
     particle: {
       mounted(el, binding) {
         const box = el;
-        let {
-          color = "#cfb45c",
-          size = 10,
-        } = binding.value || {};
+        let { color = "#cfb45c", size = 10 } = binding.value || {};
         el.style.transition = "all 0.25s";
         const style = `
           position: absolute;
@@ -56,7 +53,7 @@ export default {
           }, 50);
         }, 50);
       },
-      unbind() {
+      beforeUnmount() {
         clearInterval(particle_timer);
       },
     },

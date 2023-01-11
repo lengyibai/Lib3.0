@@ -17,8 +17,8 @@
 
   <!-- JS -->
   <script>
-    const img = document.querySelector('#img');
-    img.addEventListener('change', function () {
+    const img = document.querySelector("#img");
+    img.addEventListener("change", function () {
       $imageOptimizer({
         el: img, //上传图片的input元素
         //file:f, //file类型的文件
@@ -39,13 +39,13 @@
 ```js
 export function $imageOptimizer(obj) {
   // 先判断Dom树是否存在上次创建的canvas
-  const c1 = document.createElement('canvas');
-  c1.classList.add('imageOptimizer');
+  const c1 = document.createElement("canvas");
+  c1.classList.add("imageOptimizer");
   document.body.appendChild(c1);
-  const c2 = document.querySelector('.imageOptimizer');
-  let files = '';
-  let Blobs = '';
-  let name = '';
+  const c2 = document.querySelector(".imageOptimizer");
+  let files = "";
+  let Blobs = "";
+  let name = "";
   let ratio = obj.ratio || 1; //压缩率
   let maxsize = obj.maxsize || 1024; //超过多大进行压缩
   let width = obj.width || 10000; //压缩尺寸
@@ -79,8 +79,8 @@ export function $imageOptimizer(obj) {
           });
           p2.then(
             (e) => {
-              let canvas = document.querySelector('canvas');
-              let context = canvas.getContext('2d');
+              let canvas = document.querySelector("canvas");
+              let context = canvas.getContext("2d");
               // 如果图片尺寸大于规定尺寸，则压缩尺寸
               let scale = width / e.width;
               if (scale < 1) {
@@ -92,7 +92,7 @@ export function $imageOptimizer(obj) {
                 canvas.height = e.height;
                 context.drawImage(e, 0, 0, e.width, e.height);
               }
-              let dataUrl = canvas.toDataURL('image/jpeg', ratio);
+              let dataUrl = canvas.toDataURL("image/jpeg", ratio);
               Blobs = dataUrl;
               let file = dataURLtoFile(Blobs, name);
               obj.success(formData(file), file, Blobs);
@@ -115,7 +115,7 @@ export function $imageOptimizer(obj) {
   }
 
   function dataURLtoFile(dataurl, filename) {
-    let arr = dataurl.split(','),
+    let arr = dataurl.split(","),
       mime = arr[0].match(/:(.*?);/)[1],
       bstr = atob(arr[1]),
       n = bstr.length,
@@ -130,7 +130,7 @@ export function $imageOptimizer(obj) {
 
   function formData(file) {
     const data = new FormData();
-    data.append('file', file);
+    data.append("file", file);
     return data;
   }
 }
